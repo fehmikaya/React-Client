@@ -69,7 +69,7 @@ class App extends Component {
   deleteFromDB = idTodelete => {
     let objIdToDelete = null;
     this.state.data.forEach(dat => {
-      if (dat.id == idTodelete) {
+      if (dat.id === idTodelete) {
         objIdToDelete = dat._id;
       }
     });
@@ -87,7 +87,7 @@ class App extends Component {
   updateDB = (idToUpdate, updateToApply) => {
     let objIdToUpdate = null;
     this.state.data.forEach(dat => {
-      if (dat.id == idToUpdate) {
+      if (dat.id === idToUpdate) {
         objIdToUpdate = dat._id;
       }
     });
@@ -106,17 +106,6 @@ class App extends Component {
     const { data } = this.state;
     return (
       <div>
-        <ul>
-          {data.length <= 0
-            ? "NO DB ENTRIES YET"
-            : data.map(dat => (
-              <li style={{ padding: "10px" }} key={data.message}>
-                <span style={{ color: "gray" }}> id: </span> {dat.id} <br />
-                <span style={{ color: "gray" }}> data: </span>
-                {dat.message}
-              </li>
-            ))}
-        </ul>
         <div style={{ padding: "10px" }}>
           <input
             type="text"
@@ -160,6 +149,17 @@ class App extends Component {
             UPDATE
           </button>
         </div>
+        <ul>
+          {data.length <= 0
+            ? "NO DB ENTRIES YET"
+            : data.map(dat => (
+              <li style={{ padding: "10px" }} key={data.message}>
+                <span style={{ color: "gray" }}> id: </span> {dat.id} <br />
+                <span style={{ color: "gray" }}> data: </span>
+                {dat.message}
+              </li>
+            ))}
+        </ul>
       </div>
     );
   }
